@@ -1,0 +1,14 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type GraphQLReclamos {
+  id: ID!
+  numeroReclamo: String!
+  titulo: String!
+  problema: String!
+}
+
+type Query {
+  graphqlsearchByMatch: [GraphQLReclamos!]!
+}
