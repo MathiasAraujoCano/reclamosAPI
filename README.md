@@ -27,20 +27,39 @@
 
 3. Generar un S3 y renombrar MY_BUCKET en el archivo ```.env``` con el nombre de dicho S3 e ingresa con tus credenciales
 
-3. Ejecutar
+4. Ejecutar
 ```
 npm install
 ```
 
-4. Levantar la imagen (Docker desktop)
+5. Levantar la imagen (Docker desktop)
 ```
 docker-compose up -d
 ```
 
-5. Levantar el backend de Nest
+6. Levantar el backend de Nest
 ```
 npm run start:dev
 ```
 
+7. Genera un nuevo usuario
+```
+http://localhost:3000/auth/register
+```
 
+8. Ingresa con el nuevo usuario
+```
+http://localhost:3000/auth/login
+```
 
+9. Genera un nuevo reclamo
+```
+http://localhost:3000/reclamos
+```
+
+10. Puedes probar todos los metodos CRUD
+
+11. Ingresa para probar la parte de GraphQL
+```
+http://localhost:3000/graphql
+```

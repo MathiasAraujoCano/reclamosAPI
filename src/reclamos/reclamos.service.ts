@@ -90,8 +90,8 @@ export class ReclamosService {
     return await this.reclamosRepository.save( nuevoReclamo );
   }
 
-  async findAll() {
-    return this.reclamosRepository.find()
+  async findAll(): Promise<Reclamo[]> {
+    return await this.reclamosRepository.find()
   }
 
 

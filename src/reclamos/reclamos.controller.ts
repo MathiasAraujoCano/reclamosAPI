@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, ParseUUIDPipe, UploadedFile, UseInterceptors, UploadedFiles } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, ParseUUIDPipe, UseInterceptors, UploadedFiles } from '@nestjs/common';
 import { ReclamosService } from './reclamos.service';
 import { CreateReclamoInput, UpdateReclamoInput } from './dto/index';
 import { User } from 'src/auth/entities/user.entity';
@@ -9,7 +9,6 @@ import { Auth, GetUser } from 'src/auth/decorators';
 import { ValidRoles } from 'src/auth/interfaces';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { fileFilter } from 'src/files/helpers/fileFilter.helper';
-import { AwsService } from '../aws/aws.service';
 
 
 @Controller('reclamos')
@@ -48,6 +47,11 @@ export class ReclamosController {
     ): Promise<Reclamo> {
     return this.reclamosService.findOne(numeroReclamo, user);
   }
+
+  @Get()
+  async findAll(){
+    return this.reclamosService.findAll()
+  } 
 
   @Patch(':numeroReclamo')
   @Auth(ValidRoles.admin)
