@@ -9,8 +9,9 @@ import { Auth, GetUser } from 'src/auth/decorators';
 import { ValidRoles } from 'src/auth/interfaces';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { fileFilter } from 'src/files/helpers/fileFilter.helper';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
-
+@ApiTags('Reclamos')
 @Controller('reclamos')
 @Auth()
 export class ReclamosController {
@@ -19,6 +20,9 @@ export class ReclamosController {
     ) {}
 
   @Post()
+  @ApiResponse({ status: 201, description: 'Reclamo creado exitosamente', type: Reclamo })
+  @ApiResponse({ status: 400, description: 'Bad request' })
+  @ApiResponse({ status: 403, description: 'Forbidden. Token related.' })
   @UseInterceptors(FilesInterceptor('files', 2, {
     fileFilter: fileFilter
   }))
@@ -48,10 +52,6 @@ export class ReclamosController {
     return this.reclamosService.findOne(numeroReclamo, user);
   }
 
-  @Get()
-  async findAll(){
-    return this.reclamosService.findAll()
-  } 
 
   @Patch(':numeroReclamo')
   @Auth(ValidRoles.admin)

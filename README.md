@@ -42,24 +42,29 @@ docker-compose up -d
 npm run start:dev
 ```
 
-7. Genera un nuevo usuario
+7. Ingresa para ver todos los endpoints
+```
+http://localhost:3000/api
+```
+
+8. Genera un nuevo usuario
 ```
 http://localhost:3000/auth/register
 ```
 
-8. Ingresa con el nuevo usuario
+9. Ingresa con el nuevo usuario
 ```
 http://localhost:3000/auth/login
 ```
 
-9. Genera un nuevo reclamo
+10. Genera un nuevo reclamo
 ```
 http://localhost:3000/reclamos
 ```
 
-10. Puedes probar todos los metodos CRUD
+11. Puedes probar todos los metodos CRUD
 
-11. Ingresa para probar la parte de GraphQL
+12. Ingresa para probar la parte de GraphQL
 ```
 http://localhost:3000/graphql
 ```
